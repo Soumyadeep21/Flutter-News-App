@@ -1,14 +1,17 @@
+import 'dart:async';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_news/full_news.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-class NewsApp extends StatefulWidget {
+class HeadlinesPage extends StatefulWidget {
+
   @override
-  _NewsAppState createState() => _NewsAppState();
+  _HeadlinesPageState createState() => _HeadlinesPageState();
 }
 
-class _NewsAppState extends State<NewsApp> {
+class _HeadlinesPageState extends State<HeadlinesPage> {
 
   String url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=025c363f443b4800ae52359473183303";
 
@@ -64,9 +67,12 @@ class _NewsAppState extends State<NewsApp> {
                   padding: EdgeInsets.all(8.0),
                   child: Column(
                     children: <Widget>[
-                      Hero(
-                          tag: imgPath,
-                          child :Image.network(imgPath),
+                      Visibility(
+                        visible: imgPath!=null,
+                        child: Hero(
+                            tag: imgPath,
+                            child :Image.network(imgPath),
+                        ),
                       ),
                       Text(
                         data[i]['title'],
@@ -91,6 +97,6 @@ class _NewsAppState extends State<NewsApp> {
         }
     );
     else
-      return Container(child: Center(child: CircularProgressIndicator()),);
+      return Center(child: CupertinoActivityIndicator(animating: true,radius: 20,));
   }
 }

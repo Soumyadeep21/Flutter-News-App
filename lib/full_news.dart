@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class FullNews extends StatefulWidget {
 
-  String imgPath,title,content,url,source;
+  final String imgPath,title,content,url,source;
   FullNews({this.imgPath,this.url,this.title,this.content,this.source});
 
   @override
@@ -55,7 +56,12 @@ class _FullNewsState extends State<FullNews> {
                    CupertinoPageRoute(builder: (context)=> WebviewScaffold(
                       url: widget.url,
                       withZoom: true,
-                      appBar: AppBar(title: Text(widget.source),),
+                      appBar: AppBar(title: Row(
+                        children: <Widget>[
+                          Icon(MdiIcons.newspaper),
+                          Text("  "+widget.source),
+                        ],
+                      ),),
                     initialChild: Center(child: CircularProgressIndicator()),
                   )
                   ),
