@@ -1,7 +1,7 @@
 # flutter_news
 This is a news app made with flutter
 Implemented webview and url launcher plugins
-Also implemented persistant bottom sheet and bottom navigation bar
+Also implemented persistant bottom sheet and bottom navigation bar that changes its color
 
 <img src = "https://user-images.githubusercontent.com/43180848/53296416-adfcee00-3834-11e9-9be0-14931820d6c6.png" width = 300.0> <img src = "https://user-images.githubusercontent.com/43180848/53296435-7d698400-3835-11e9-8d9d-cd008d865888.png" width = 300.0>
 
